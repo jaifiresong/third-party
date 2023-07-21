@@ -1,0 +1,23 @@
+{
+    "name": "call-tencent/third-party",
+    "description": "微信开放平台，第三方平台应用",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "ThirdParty\\": "src/Weixin/ThirdParty",
+            "Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jaifiresong",
+            "email": "jaifiresong@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    }
+}

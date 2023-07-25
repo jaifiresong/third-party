@@ -1,8 +1,9 @@
 <?php
 
-namespace ThirdParty\Support;
+namespace ThirdParty;
 
 use ThirdParty\Security\Crypto;
+use ThirdParty\Support\Miscellaneous;
 
 /**
  * 参考：https://blog.csdn.net/akanswer/article/details/118701594
@@ -32,9 +33,9 @@ class Decipher
     public function decryptMsg($msgSignature, $timestamp, $nonce, $postData)
     {
         //提取密文
-        $encrypt = DecipAide::xmlExtract(DecipAide::xmlFormat($postData));
+        $encrypt = Miscellaneous::xmlExtract(Miscellaneous::xmlFormat($postData));
         //验证安全签名
-        $signature = DecipAide::getSHA1($this->token, $timestamp, $nonce, $encrypt);
+        $signature = Miscellaneous::getSHA1($this->token, $timestamp, $nonce, $encrypt);
         if ($signature != $msgSignature) {
             return false;
         }
@@ -51,8 +52,8 @@ class Decipher
         //加密
         $encrypt = $this->cryp->encrypt($replyMsg, $this->appId);
         //生成安全签名
-        $signature = DecipAide::getSHA1($this->token, $timeStamp, $nonce, $encrypt);
+        $signature = Miscellaneous::getSHA1($this->token, $timeStamp, $nonce, $encrypt);
         //生成发送的xml
-        return DecipAide::xmlGenerate($encrypt, $signature, $timeStamp, $nonce);
+        return Miscellaneous::xmlGenerate($encrypt, $signature, $timeStamp, $nonce);
     }
 }

@@ -5,7 +5,7 @@ namespace Test;
 
 
 use PHPUnit\Framework\TestCase;
-use ThirdParty\Support\Decipher;
+use ThirdParty\Decipher;
 
 class TestDecipher extends TestCase
 {

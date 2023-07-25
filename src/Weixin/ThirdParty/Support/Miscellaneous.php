@@ -3,7 +3,7 @@
 namespace ThirdParty\Support;
 
 
-class DecipAide
+class Miscellaneous
 {
     //xml格式化
     public static function xmlFormat($xml)

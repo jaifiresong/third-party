@@ -1,6 +1,6 @@
 <?php
 
-use ThirdParty\Support\Decipher;
+use ThirdParty\Decipher;
 
 class CallbackController
 {

@@ -3,19 +3,20 @@
 
 namespace ThirdParty;
 
-
-use ThirdParty\Promise\CurlPromise;
-use ThirdParty\Promise\ParamPromise;
+use ThirdParty\Promise\ThirdPartyPromise;
 
 class ThirdParty
 {
     private $param;
-    private $curl;
 
-    public function __construct(ParamPromise $param, CurlPromise $curl)
+    public function __construct(ThirdPartyPromise $param)
     {
         $this->param = $param;
-        $this->curl = $curl;
+    }
+
+    public function get_api_component_token()
+    {
+        return $this->param->get_component_access_token();
     }
 
     /**
@@ -32,7 +33,7 @@ class ThirdParty
             'component_appsecret' => $this->param->component_appsecret(),//第三方平台 appsecret
             'component_verify_ticket' => $this->param->component_verify_ticket(),//微信后台推送的 ticket
         ];
-        return $this->curl->post($api, $params);
+        return $this->param->post($api, $params);
     }
 
     /**
@@ -49,7 +50,7 @@ class ThirdParty
         $params = [
             'component_appid' => $this->param->component_appid(),//第三方平台 appid
         ];
-        $preauthcode = $this->curl->preAuthCodePost($api, $params);
+        $preauthcode = $this->param->preAuthCodePost($api, $params);
 
         // 组装授权地址
         $query = [
@@ -76,7 +77,7 @@ class ThirdParty
             'component_appid' => $this->param->component_appid(),//第三方平台 appid
             'authorization_code' => $authorization_code,//授权码, 会在授权成功时返回给第三方平台
         ];
-        return $this->curl->post($api, $params);
+        return $this->param->post($api, $params);
     }
 
     /**
@@ -93,6 +94,6 @@ class ThirdParty
             'authorizer_appid' => $authorizer_appid,
             'authorizer_refresh_token' => $authorizer_refresh_token,
         ];
-        return $this->curl->post($api, $params);
+        return $this->param->post($api, $params);
     }
 }

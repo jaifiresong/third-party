@@ -3,7 +3,7 @@
 namespace ThirdParty\Promise;
 
 
-interface ParamPromise
+interface ThirdPartyPromise
 {
     /**
      * 平台APPID
@@ -24,4 +24,14 @@ interface ParamPromise
      * 获取平台token
      */
     public function get_component_access_token();
+
+    /**
+     * post 请求
+     */
+    public function post($url, $params);
+
+    /**
+     * 获取预授权码的请求
+     */
+    public function preAuthCodePost($api, $params);
 }

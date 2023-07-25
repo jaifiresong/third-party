@@ -26,12 +26,17 @@ interface ThirdPartyPromise
     public function get_component_access_token();
 
     /**
+     * 获取授权方的TOKEN
+     */
+    public function get_authorizer_access_token($authorizer_appid);
+
+    /**
      * post 请求
      */
-    public function post($url, $params);
+    public function post($url, $params): array;
 
     /**
      * 获取预授权码的请求
      */
-    public function preAuthCodePost($api, $params);
+    public function preAuthCodePost($api, $params): string;
 }

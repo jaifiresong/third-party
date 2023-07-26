@@ -21,6 +21,11 @@ interface ThirdPartyPromise
     public function component_verify_ticket();
 
     /**
+     * 获取预授权码
+     */
+    public function get_pre_auth_code();
+
+    /**
      * 获取平台token
      */
     public function get_component_access_token();
@@ -34,9 +39,4 @@ interface ThirdPartyPromise
      * post 请求
      */
     public function post($url, $params): array;
-
-    /**
-     * 获取预授权码的请求
-     */
-    public function preAuthCodePost($api, $params): string;
 }

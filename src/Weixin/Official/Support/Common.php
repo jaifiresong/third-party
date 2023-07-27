@@ -2,18 +2,16 @@
 
 namespace Official\Support;
 
-
-use Official\Promise\GzhApiPromise;
-
+use Official\Promise\BasePromise;
 
 class Common
 {
     /**
      * 获取 token
      * 公众号和小程序是一样的
-     * @param GzhApiPromise $promise
+     * @param BasePromise $promise
      */
-    public static function getAccessTokenApi(GzhApiPromise $promise)
+    public static function getAccessToken(BasePromise $promise)
     {
         $query = [
             'grant_type' => 'client_credential',
@@ -31,7 +29,7 @@ class Common
      * @param $token
      * @return bool
      */
-    public static function checkMsgSignature($signature, $timestamp, $nonce, $token)
+    public static function checkMsgSignature($signature, $timestamp, $nonce, $token): bool
     {
         $arr = array($token, $timestamp, $nonce);
         sort($arr, SORT_STRING);

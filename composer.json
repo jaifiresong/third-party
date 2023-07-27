@@ -5,6 +5,7 @@
     "autoload": {
         "psr-4": {
             "ThirdParty\\": "src/Weixin/ThirdParty",
+            "Official\\": "src/Weixin/Official",
             "Test\\": "tests/"
         }
     },

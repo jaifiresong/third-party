@@ -13,7 +13,7 @@ class Gzh
     public static function summon(GzhApiPromise $promise): Gzh
     {
         $token = $promise->get_access_token();
-        if (!empty(self::$instances[$token])) {
+        if (empty(self::$instances[$token])) {
             self::$instances[$token] = new self($token, $promise);
         }
         return self::$instances[$token];

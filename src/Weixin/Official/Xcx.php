@@ -33,7 +33,7 @@ class Xcx
     public static function summon(XcxApiPromise $promise): Xcx
     {
         $token = $promise->get_access_token();
-        if (!empty(self::$instances[$token])) {
+        if (empty(self::$instances[$token])) {
             self::$instances[$token] = new self($token, $promise);
         }
         return self::$instances[$token];

@@ -2,23 +2,23 @@
 
 namespace Official\Support;
 
-use Official\Promise\BasePromise;
+use Official\Contracts\BaseInterface;
 
 class Common
 {
     /**
      * 获取 token
      * 公众号和小程序是一样的
-     * @param BasePromise $promise
+     * @param BaseInterface $promise
      */
-    public static function getAccessToken(BasePromise $promise)
+    public static function getAccessToken(BaseInterface $promise)
     {
         $query = [
             'grant_type' => 'client_credential',
             'appid' => $promise->appid(),
             'secret' => $promise->secret(),
         ];
-        $promise->get('https://api.weixin.qq.com/cgi-bin/token?' . http_build_query($query));
+        return $promise->get('https://api.weixin.qq.com/cgi-bin/token?' . http_build_query($query));
     }
 
     /**

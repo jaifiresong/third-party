@@ -1,8 +1,8 @@
 <?php
 
-namespace Official\Promise;
+namespace Official\Contracts;
 
-interface BasePromise
+interface BaseInterface
 {
     public function appid();
 

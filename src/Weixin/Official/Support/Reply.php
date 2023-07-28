@@ -22,4 +22,45 @@ class Reply
                   <Content><![CDATA[$content]]></Content>
                 </xml>";
     }
+
+    public static function makeImg($media_id, $toUser, $fromUser)
+    {
+        $CreateTime = time();
+        return "<xml>
+                  <ToUserName><![CDATA[$toUser]]></ToUserName>
+                  <FromUserName><![CDATA[$fromUser]]></FromUserName>
+                  <CreateTime>$CreateTime</CreateTime>
+                  <MsgType><![CDATA[image]]></MsgType>
+                  <Image>
+                    <MediaId><![CDATA[$media_id]]></MediaId>
+                  </Image>
+                </xml>";
+    }
+
+    public static function makeGraphic(array $data, $toUser, $fromUser)
+    {
+        $CreateTime = time();
+        $count = count($data);
+        $articles = '';
+        foreach ($data as $item) {
+            $pic = $item['pic']; //图文件封面
+            $url = $item['url']; //图文详情
+            $articles .= "<item>
+                              <Title><![CDATA[{$item['title']}]]></Title>
+                              <Description><![CDATA[{$item['description']}]]></Description>
+                              <PicUrl><![CDATA[{$pic}]]></PicUrl>
+                              <Url><![CDATA[{$url}]]></Url>
+                            </item>";
+        }
+        return "<xml>
+                  <ToUserName><![CDATA[$toUser]]></ToUserName>
+                  <FromUserName><![CDATA[$fromUser]]></FromUserName>
+                  <CreateTime>$CreateTime</CreateTime>
+                  <MsgType><![CDATA[news]]></MsgType>
+                  <ArticleCount>$count</ArticleCount>
+                  <Articles>
+                        $articles
+                  </Articles>
+                </xml>";
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Official\Contracts;
+namespace ReqTencent\Weixin\Official\Contracts;
 
 interface BaseInterface
 {

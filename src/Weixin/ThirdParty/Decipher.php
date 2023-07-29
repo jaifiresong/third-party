@@ -1,9 +1,9 @@
 <?php
 
-namespace ThirdParty;
+namespace ReqTencent\Weixin\ThirdParty;
 
-use ThirdParty\Security\Crypto;
-use ThirdParty\Support\Miscellaneous;
+use ReqTencent\Weixin\ThirdParty\Security\Crypto;
+use ReqTencent\Weixin\ThirdParty\Support\Miscellaneous;
 
 /**
  * 参考：https://blog.csdn.net/akanswer/article/details/118701594
@@ -19,7 +19,7 @@ class Decipher
      * @param string $token 第三方应用的，消息校验Token
      * @param string $appId 第三方应用的APPID
      */
-    public function __construct($encodingAesKey, $token, $appId)
+    public function __construct(string $encodingAesKey, string $token, string $appId)
     {
         if (strlen($encodingAesKey) != 43) {
 

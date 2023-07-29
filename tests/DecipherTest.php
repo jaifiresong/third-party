@@ -5,9 +5,10 @@ namespace Test;
 
 
 use PHPUnit\Framework\TestCase;
-use ThirdParty\Decipher;
+use ReqTencent\Weixin\ThirdParty\Decipher;
 
-class TestDecipher extends TestCase
+
+class DecipherTest extends TestCase
 {
 
     public function test01()

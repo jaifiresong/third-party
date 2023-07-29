@@ -1,6 +1,6 @@
 <?php
 
-namespace ThirdParty\Support;
+namespace ReqTencent\Weixin\ThirdParty\Support;
 
 
 class Miscellaneous

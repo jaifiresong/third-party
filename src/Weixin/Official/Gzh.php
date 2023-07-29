@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Official;
+namespace ReqTencent\Weixin\Official;
 
 
-use Official\Api\Gzh\Base;
-use Official\Api\Gzh\Material;
-use Official\Contracts\GzhApiInterface;
+use ReqTencent\Weixin\Official\Api\Gzh\Base;
+use ReqTencent\Weixin\Official\Api\Gzh\Material;
+use ReqTencent\Weixin\Official\Contracts\GzhApiInterface;
 
 class Gzh
 {

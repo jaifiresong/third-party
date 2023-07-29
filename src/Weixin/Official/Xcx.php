@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Official;
+namespace ReqTencent\Weixin\Official;
 
 
-use Official\Api\Xcx\Base;
-use Official\Contracts\XcxApiInterface;
+use ReqTencent\Weixin\Official\Api\Xcx\Base;
+use ReqTencent\Weixin\Official\Contracts\XcxApiInterface;
 
 class Xcx
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Official\Support;
+namespace ReqTencent\Weixin\Official\Support;
 
 
 class Reply

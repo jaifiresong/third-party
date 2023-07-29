@@ -1,9 +1,9 @@
 <?php
 
-namespace ThirdParty\Promise;
+namespace ReqTencent\Weixin\ThirdParty\Contracts;
 
 
-interface ThirdPartyPromise
+interface ThirdPartyInterface
 {
     /**
      * 平台APPID

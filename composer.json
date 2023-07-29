@@ -1,11 +1,10 @@
 {
-    "name": "call-tencent/third-party",
+    "name": "req-tencent/third-party",
     "description": "微信开放平台，第三方平台应用",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "ThirdParty\\": "src/Weixin/ThirdParty",
-            "Official\\": "src/Weixin/Official",
+            "ReqTencent\\": "src/",
             "Test\\": "tests/"
         }
     },
@@ -17,7 +16,8 @@
     ],
     "require": {
         "php": ">=7.2",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-curl": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5"

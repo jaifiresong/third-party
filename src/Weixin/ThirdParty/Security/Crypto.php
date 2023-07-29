@@ -4,7 +4,7 @@
  * 微信通讯加解密
  */
 
-namespace ThirdParty\Security;
+namespace ReqTencent\Weixin\ThirdParty\Security;
 
 
 class Crypto

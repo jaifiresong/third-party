@@ -1,9 +1,6 @@
 <?php
 
-
-
-
-class LzljQdTp implements ThirdPartyPromise
+class ThirdPartyImplement implements \ReqTencent\Weixin\ThirdParty\Contracts\ThirdPartyInterface
 {
 
     public function component_appid()

@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Official\Api\Gzh;
+namespace ReqTencent\Weixin\Official\Api\Gzh;
 
-use Official\Contracts\GzhApiInterface;
+use ReqTencent\Weixin\Official\Contracts\GzhApiInterface;
 
 class Material
 {

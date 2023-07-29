@@ -1,6 +1,8 @@
 <?php
 
 
+use ReqTencent\Weixin\ThirdParty\Decipher;
+
 class CallbackController
 {
     private $dec;
@@ -42,7 +44,7 @@ class CallbackController
 
             //授权，使用授权码换取token
             if ('authorized' === $msg['InfoType']) {
-                $arr = (new ThirdParty(new LzljQdTp()))->authorizer_access_token($msg['AuthorizationCode']);
+                $arr = (new ThirdParty(new ThirdPartyImplement()))->authorizer_access_token($msg['AuthorizationCode']);
                 // 保存授权方的token
                 Crud::db()->updateOrInsert('tpp_authorizer_token',
                     [

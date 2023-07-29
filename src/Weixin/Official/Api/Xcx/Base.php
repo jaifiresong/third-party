@@ -1,8 +1,8 @@
 <?php
 
-namespace Official\Api\Xcx;
+namespace ReqTencent\Weixin\Official\Api\Xcx;
 
-use Official\Contracts\XcxApiInterface;
+use ReqTencent\Weixin\Official\Contracts\XcxApiInterface;
 
 class Base
 {

@@ -5,11 +5,11 @@ namespace Test;
 
 
 use PHPUnit\Framework\TestCase;
-use ThirdParty\Security\Crypto;
+use ReqTencent\Weixin\ThirdParty\Security\Crypto;
+
 
 class CryptoTest extends TestCase
 {
-
     public function testEncrypt()
     {
         $t = new Crypto();

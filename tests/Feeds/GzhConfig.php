@@ -5,7 +5,7 @@ namespace Test\Feeds;
 
 
 use ReqTencent\Weixin\Official\Contracts\GzhApiInterface;
-use Test\Utils\Curl;
+use Test\Feeds\Utils\Curl;
 
 
 class GzhConfig implements GzhApiInterface
@@ -30,7 +30,8 @@ class GzhConfig implements GzhApiInterface
 
     public function get_access_token()
     {
-        return '71_muO3EPhRM-S63N-5IM4x-jAIu_XOHJCrzsrUdZZOZkpnFfZUq0RtQ6BsXcrgfcslUktqb8U0XfoKVmRcjP4btLLK_mBB7uy9C4Xicndp2pVPHOsNX-HSKgg0VGUBFChAIANRO';
+        return '71_i84U9ovTajGkllkoP_e1ZaXNn87FOVJ1S6aTXamwkteEPMhTj4jLRnwzz1LTY-5omb805-e6yxtfK5WtF61b4JhoWzB1dOCZqHUPA21GgRbg-FaCEdgJFBv24R8RQScADAWVX';
+        return '71_paAsczC_5aFmOJB5GrnX1pfKNd721VMVvQj45qxHjS9riieVx3GkcYwhprhMoY-IA9AfmV_1P20Y01nApcTDbvRl6j4SYjyvESXS0Pfb1ehij8UtV8tDrChTKvWUSCfw_5QlXk-DjWWSOK42CXUgAGDQLI';
     }
 
     public function get($api)

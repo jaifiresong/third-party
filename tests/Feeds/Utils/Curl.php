@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Utils;
+namespace Test\Feeds\Utils;
 
 class Curl
 {

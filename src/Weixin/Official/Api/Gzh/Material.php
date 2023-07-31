@@ -24,12 +24,14 @@ class Material
      * @param $type
      * @param $file_path
      * @param array $description
+     * @param string $mime_type
+     * @param string $posted_filename 不加后缀名会：unsupported file type hint: [oRzbMa02899020]
      * @return mixed
      */
-    public function addMaterial($type, $file_path, array $description = [])
+    public function addMaterial($type, $file_path, array $description = [], $posted_filename = '', $mime_type = '')
     {
         $payload = [
-            "media" => curl_file_create($file_path),
+            "media" => curl_file_create($file_path, $mime_type, $posted_filename),
             "description" => json_encode($description),
         ];
         $api = "https://api.weixin.qq.com/cgi-bin/material/add_material?access_token={$this->token}&type=$type";

@@ -33,13 +33,13 @@ class ThirdParty
      */
     public function api_component_token()
     {
-        $api = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
-        $promises = [
+        $json = [
             'component_appid' => $this->promise->component_appid(),//第三方平台 appid
             'component_appsecret' => $this->promise->component_appsecret(),//第三方平台 appsecret
             'component_verify_ticket' => $this->promise->component_verify_ticket(),//微信后台推送的 ticket
         ];
-        return $this->promise->post($api, $promises);
+        $api = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
+        return $this->promise->post($api, json_encode($json));
     }
 
     /**
@@ -49,11 +49,11 @@ class ThirdParty
      */
     public function api_create_preauthcode()
     {
-        $api = "https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token=" . $this->promise->get_component_access_token();
-        $promises = [
+        $json = [
             'component_appid' => $this->promise->component_appid(),//第三方平台 appid
         ];
-        return $this->promise->post($api, $promises);
+        $api = "https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token=" . $this->promise->get_component_access_token();
+        return $this->promise->post($api, json_encode($json));
     }
 
     /**
@@ -61,9 +61,11 @@ class ThirdParty
      * 步骤四：拼接授权地址
      * @promise $redirect_uri
      * @promise int $auth_type
+     * @param string $redirect_uri
+     * @param int $auth_type
      * @return string
      */
-    public function componentLoginPage($redirect_uri, $auth_type = 1)
+    public function componentLoginPage($redirect_uri, $auth_type = 1): string
     {
         // 组装授权地址
         $query = [
@@ -82,15 +84,17 @@ class ThirdParty
      * 获取被开发方的TOKEN
      * 管理员扫码后，回调数据会带 authorization_code 使用它来获取被开发方的TOKEN
      * @promise $authorization_code
+     * @param $authorization_code
+     * @return mixed
      */
     public function authorizer_access_token($authorization_code)
     {
-        $api = "https://api.weixin.qq.com/cgi-bin/component/api_query_auth?component_access_token=" . $this->promise->get_component_access_token();
-        $promises = [
+        $json = [
             'component_appid' => $this->promise->component_appid(),//第三方平台 appid
             'authorization_code' => $authorization_code,//授权码, 会在授权成功时返回给第三方平台
         ];
-        return $this->promise->post($api, $promises);
+        $api = "https://api.weixin.qq.com/cgi-bin/component/api_query_auth?component_access_token=" . $this->promise->get_component_access_token();
+        return $this->promise->post($api, json_encode($json));
     }
 
     /**
@@ -98,15 +102,18 @@ class ThirdParty
      * 刷新被开发方的TOKEN
      * @promise $authorizer_appid
      * @promise $authorizer_refresh_token
+     * @param $authorizer_appid
+     * @param $authorizer_refresh_token
+     * @return mixed
      */
     public function refresh_authorizer_token($authorizer_appid, $authorizer_refresh_token)
     {
-        $api = "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=" . $this->promise->get_component_access_token();
-        $promises = [
+        $json = [
             'component_appid' => $this->promise->component_appid(),
             'authorizer_appid' => $authorizer_appid,
             'authorizer_refresh_token' => $authorizer_refresh_token,
         ];
-        return $this->promise->post($api, $promises);
+        $api = "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=" . $this->promise->get_component_access_token();
+        return $this->promise->post($api, json_encode($json));
     }
 }

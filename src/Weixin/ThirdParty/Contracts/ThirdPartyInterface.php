@@ -38,5 +38,5 @@ interface ThirdPartyInterface
     /**
      * post 请求
      */
-    public function post($url, $params): array;
+    public function post($url, $params);
 }

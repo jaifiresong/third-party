@@ -8,9 +8,9 @@ interface BaseInterface
 
     public function secret();
 
-    public function get($api);
+    public function get($url);
 
-    public function post($api, $json);
+    public function post($url, $params);
 
     public function get_access_token();
 }

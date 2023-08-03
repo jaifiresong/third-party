@@ -2,6 +2,7 @@
     "name": "req-tencent/third-party",
     "description": "微信开放平台，第三方平台应用",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "ReqTencent\\": "src/",

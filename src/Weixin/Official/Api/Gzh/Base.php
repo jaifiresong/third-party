@@ -202,7 +202,6 @@ class Base
             ]
         ];
         $api = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=' . $this->token;
-        return $this->promise->post($api, json_encode($json));
+        return $this->promise->post($api, json_encode($json, JSON_UNESCAPED_UNICODE));
     }
-
 }

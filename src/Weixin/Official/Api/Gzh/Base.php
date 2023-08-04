@@ -132,6 +132,9 @@ class Base
     /**
      * https://developers.weixin.qq.com/doc/offiaccount/User_Management/Get_users_basic_information_UnionID.html#UinonId
      * 获取关注了公众号的用户的信息
+     * https://developers.weixin.qq.com/community/develop/doc/00028edbe3c58081e7cc834705b801?blockType=1&page=2#comment-list
+     * 微信公众平台用户信息相关接口调整公告
+     *
      * @param $openid
      * @return mixed
      */

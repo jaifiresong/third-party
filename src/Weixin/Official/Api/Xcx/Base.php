@@ -28,6 +28,19 @@ class Base
     }
 
     /**
+     * https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/user-info/phone-number/getPhoneNumber.html
+     * 获取用户手机号
+     */
+    public function userPhoneNumber($code)
+    {
+        $json = [
+            'code' => $code
+        ];
+        $api = 'https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token=' . $this->token;
+        return $this->promise->post($api, json_encode($json));
+    }
+
+    /**
      * 异步校验图片/音频是否含有违法违规内容。
      * @return mixed {"errcode":0,"errmsg":"ok","trace_id":"62abe636-76ef39f0-61cfa62d"}
      */
@@ -42,7 +55,7 @@ class Base
         ];
         $api = 'https://api.weixin.qq.com/wxa/media_check_async?access_token=' . $this->token;
         //httpPost
-        return $this->promise->post($api, $json);
+        return $this->promise->post($api, json_encode($json));
     }
 
     /**
@@ -59,7 +72,7 @@ class Base
         ];
         $api = 'https://api.weixin.qq.com/wxa/msg_sec_check?access_token=' . $this->token;
         //httpPost
-        return $this->promise->post($api, $json);
+        return $this->promise->post($api, json_encode($json));
     }
 
     /**
@@ -82,7 +95,7 @@ class Base
         ];
         $api = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=' . $this->token;
         //httpPost
-        return $this->promise->post($api, $json);
+        return $this->promise->post($api, json_encode($json));
     }
 
 
@@ -103,7 +116,7 @@ class Base
         ];
         $api = 'https://api.weixin.qq.com/wxa/generatescheme?access_token=' . $this->token;
         //httpPost
-        return $this->promise->post($api, $json);
+        return $this->promise->post($api, json_encode($json));
     }
 
 
@@ -125,7 +138,7 @@ class Base
         $api = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" . $this->token;
         //httpPost
         //header('Content-type:image/jpeg');
-        return $this->promise->post($api, $json);
+        return $this->promise->post($api, json_encode($json));
     }
 
 
@@ -146,6 +159,6 @@ class Base
         $api = "https://api.weixin.qq.com/wxa/getwxacode?access_token=" . $this->token;
         //httpPost
         //header('Content-type:image/jpeg');
-        return $this->promise->post($api, $json);
+        return $this->promise->post($api, json_encode($json));
     }
 }

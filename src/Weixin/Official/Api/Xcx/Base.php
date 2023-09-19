@@ -21,10 +21,13 @@ class Base
      */
     public function code2Session($code)
     {
-        $appid = $this->promise->appid();
-        $secret = $this->promise->secret();
-        $api = "https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$code&grant_type=authorization_code";
-        return $this->promise->get($api);
+        $query = [
+            'grant_type' => 'authorization_code',
+            'appid' => $this->promise->appid(),
+            'secret' => $this->promise->secret(),
+            'js_code' => $code,
+        ];
+        return $this->promise->get('https://api.weixin.qq.com/sns/jscode2session?' . http_build_query($query));
     }
 
     /**
@@ -41,8 +44,9 @@ class Base
     }
 
     /**
+     * https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/sec-center/sec-check/mediaCheckAsync.html
      * 异步校验图片/音频是否含有违法违规内容。
-     * @return mixed {"errcode":0,"errmsg":"ok","trace_id":"62abe636-76ef39f0-61cfa62d"}
+     * @return mixed
      */
     public function mediaCheckAsync($openid, $media_url)
     {
@@ -59,8 +63,9 @@ class Base
     }
 
     /**
+     * https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/sec-center/sec-check/msgSecCheck.html
      * 检查一段文本是否含有违法违规内容。
-     * @return mixed {"errcode":0,"errmsg":"ok","detail":[{"strategy":"keyword","errcode":0},{"strategy":"content_model","errcode":0,"suggest":"pass","label":100,"prob":90}],"trace_id":"62abe43a-79672562-2c96f8c7","result":{"suggest":"pass","label":100}}null
+     * @return mixed
      */
     public function msgCheck($openid, $content)
     {

@@ -138,7 +138,7 @@ class Base
      * @param $openid
      * @return mixed
      */
-    public function user_info($openid)
+    public function userInfo($openid)
     {
         $query = [
             'access_token' => $this->token,
